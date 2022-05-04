@@ -1,0 +1,5 @@
+.navbar{
+    /* background-color: rgb(115, 185, 255); */
+    display: flex;
+    flex-direction: row;
+}

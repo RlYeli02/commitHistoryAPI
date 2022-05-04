@@ -1,0 +1,43 @@
+
+.commit-container{
+    background-color: rgb(236, 249, 255);
+   width: 100%;
+   display: flex; 
+   flex-direction: row; 
+   flex-wrap:wrap;
+   padding: 5% 15%;
+   justify-content: center;
+}
+
+.commit-list{
+
+    border-radius: 5px ;
+    display: flex;
+    flex-direction: row;  
+    flex-wrap:wrap;
+    width: 100%;
+
+ }
+ .commit-listCard{
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px ;
+    margin: 2% ;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 21%;
+
+ }
+
+.commit-date{
+     font-size: 14px;
+}
+
+.githubLogo{
+    height: 40px;
+    width: 40px;
+    margin:0px 43%;
+
+   
+}
