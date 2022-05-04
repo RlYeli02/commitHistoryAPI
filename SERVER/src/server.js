@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/github/commits", GitHub )
 
 app.get('/', (req, res) => {
-  console.log("REQ",req)
+
   res.send('Ok');
 });
 

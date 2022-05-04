@@ -7,12 +7,12 @@ const instance = axios.create({
 class GitHubAPI {
     constructor() { }
 
-    async getCommitsByRepo() {
+    async getCommitsByRepo(token) {
         try {
             
             const response = await instance.get(`/repos/RlYeli02/commitHistoryAPI/commits`, {
                 headers: {
-                    "Authorization": `token ${process.env.GITHUB_TOKEN}`
+                    "Authorization": `${token}`
                 }
             });
             

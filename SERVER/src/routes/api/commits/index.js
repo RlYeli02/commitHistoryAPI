@@ -8,16 +8,17 @@ const gitHubCache = new NodeCache();
 
 router.get("/", async (req, res) => {
     try {
+        const token = req.headers.authorization;
 
         if (gitHubCache.has('commits')) {
-            
+
             const commitsFromCache = JSON.stringify(gitHubCache.get('commits'))
 
             res.setHeader('Content-Type', 'application/json');
             res.send(commitsFromCache)
 
         } else {
-            const commits = await gitHub.getCommitsByRepo()
+            const commits = await gitHub.getCommitsByRepo(token)
             const { status, data } = commits;
           
             if (status === 200) {
