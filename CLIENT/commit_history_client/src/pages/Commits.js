@@ -2,42 +2,40 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 import NavBar from "../components/NavBar";
-
+import ErrorPage from "../components/ErrorPage"
 
 const CommitList = () => {
-    const [data, setData] = useState([]);
+    const [commits, setCommits] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-    const getData = async () => {
+    const getCommits = async () => {
         try {
             let response = await axios.get('http://localhost:5000/github/commits/');
-            setData(response.data)
+            setCommits(response.data)
             setLoading(false)
-        } catch (e) {
-            throw new Error("Cannot Fetch Data From Server")
+        } catch (error) {
+            setError(error)
+            setLoading(false)
         }
     }
 
     useEffect(() => {
-        getData()
+        getCommits()
     }, [])
 
     if (loading) return "Loading..."
+    if (error) {
+        return (
+            <ErrorPage error={error} />
+        )
+    }
     return (
-        <>
+        <div>
             <NavBar />
-            <div className="container" >
-                <div className="commit-container">
-                    <div className="commit-list">
-                        {data.map(({ commit, sha }) => (
-                            <Card key={sha} commit={commit} />
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </>
+            <Card commits={commits}/>
+        </div>
     )
 }
-
 
 export default CommitList;

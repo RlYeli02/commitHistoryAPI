@@ -1,13 +1,20 @@
-import "./assets/styles/NavBar.css"
-import React from 'react';
 
+import React from 'react';
+import {BrowserRouter,
+  Routes,
+  Route,} from "react-router-dom"
 import CommitList from './pages/Commits';
 
 function App() {
   return (
-    <div className="App">
-       <CommitList/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+    
+      <Route index path="/" element={<CommitList/>}/>
+
+    </Routes>
+    </BrowserRouter>
+    
   );
 }
 

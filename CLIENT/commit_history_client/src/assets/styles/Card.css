@@ -18,7 +18,7 @@
     width: 100%;
 
  }
- .commit-listCard{
+ .commit-list-card{
     background-color: white;
     border: 1px solid grey;
     border-radius: 5px ;
@@ -34,10 +34,10 @@
      font-size: 14px;
 }
 
-.githubLogo{
-    height: 40px;
-    width: 40px;
+.commit-author-photo{
+    height: 60px;
+    width: 60px;
     margin:0px 43%;
-
+  border-radius: 50%;
    
 }
