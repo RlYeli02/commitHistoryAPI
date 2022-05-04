@@ -10,19 +10,21 @@ router.get("/", async (req, res) => {
     try {
 
         if (gitHubCache.has('commits')) {
+            
             const commitsFromCache = JSON.stringify(gitHubCache.get('commits'))
+
             res.setHeader('Content-Type', 'application/json');
             res.send(commitsFromCache)
 
         } else {
             const commits = await gitHub.getCommitsByRepo()
             const { status, data } = commits;
-
+          
             if (status === 200) {
                 gitHubCache.set('commits', data)
                 res.status(200).send(data)
             }
-            
+
             else {
                 res.status(status).send(data)
             }
