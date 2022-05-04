@@ -10,8 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyparser.urlencoded({extended:false}))
-app.use(bodyparser.json())
+
 
 // GitHub Routes
 app.use("/github/commits", GitHub )
