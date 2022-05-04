@@ -9,7 +9,6 @@ const gitHubCache = new NodeCache();
 router.get("/", async (req, res) => {
     try {
         if (gitHubCache.has('commits')) {
-          
             res.send("Result: " + gitHubCache.get('commits'))
         } else {
             const commitss = await commits.getCommitsByRepo()

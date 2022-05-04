@@ -7,7 +7,7 @@ const instance = axios.create({
 class GitHubAPI {
     constructor(){}
 
-    async getCommitsByRepo (token){
+    async getCommitsByRepo (){
         const response = await instance.get(`/repos/RlYeli02/commitHistoryAPI/commits`);
         console.log("Success: ", response.data)
         return response
