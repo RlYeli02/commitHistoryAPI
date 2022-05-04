@@ -9,12 +9,14 @@ const gitHubCache = new NodeCache();
 router.get("/", async (req, res) => {
     try {
         if (gitHubCache.has('commits')) {
-            res.send("Result: " + gitHubCache.get('commits'))
+            const commitsFromCache = JSON.stringify(gitHubCache.get('commits'))
+            res.setHeader('Content-Type', 'application/json');
+            res.send(commitsFromCache)
+          
         } else {
             const commits = await gitHub.getCommitsByRepo()
-            gitHubCache.set('commits', commits)
-            
-            res.send(JSON.stringify(commits))
+            gitHubCache.set('commits',commits)
+            res.send(commits)
           
         }
     } catch (e) {
