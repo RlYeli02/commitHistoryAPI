@@ -1,0 +1,8 @@
+{
+  "name": "commit_api",
+  "version": "1.0.0",
+  "description": "a simple API to view your commit history in a project",
+  "main": "index.js",
+  "author": "Franyeliza Rodriguez",
+  "license": "MIT"
+}
