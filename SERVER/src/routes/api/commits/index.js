@@ -3,7 +3,7 @@ import NodeCache from "node-cache";
 import GitHubAPI from "../../../datasources/github.js";
 
 const router = Router();
-const commits = new GitHubAPI();
+const gitHub = new GitHubAPI();
 const gitHubCache = new NodeCache();
 
 router.get("/", async (req, res) => {
@@ -11,10 +11,11 @@ router.get("/", async (req, res) => {
         if (gitHubCache.has('commits')) {
             res.send("Result: " + gitHubCache.get('commits'))
         } else {
-            const commitss = await commits.getCommitsByRepo()
+            const commits = await gitHub.getCommitsByRepo()
             gitHubCache.set('commits', commits)
             
-            res.send("Result: " + commits)
+            res.send(JSON.stringify(commits))
+          
         }
     } catch (e) {
         console.log("Error", e)

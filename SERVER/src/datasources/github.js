@@ -9,8 +9,7 @@ class GitHubAPI {
 
     async getCommitsByRepo (){
         const response = await instance.get(`/repos/RlYeli02/commitHistoryAPI/commits`);
-        console.log("Success: ", response.data)
-        return response
+        return response.data
     }
 }
 
