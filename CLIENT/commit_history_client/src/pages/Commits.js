@@ -43,7 +43,7 @@ const CommitList = () => {
         <div>
             <NavBar />
             <div style={{ marginLeft: "1rem" }}>
-                <input style={{ width: "30rem", height: "1.5rem" }} type="text" onChange={onChange} placeholder="Enter the OAuth token given in the readmeFile.md" />
+                <input style={{ width: "30rem", height: "1.5rem" }} type="text" onChange={onChange} placeholder="Enter the OAuth token given in the email." />
                 <button style={{ fontFamily: 'Nunito', height: "1.5rem" }} onClick={getCommits}>Find Commit List</button>
             </div>
             <Card commits={commits} />
