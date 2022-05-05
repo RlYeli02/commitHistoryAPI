@@ -31,4 +31,8 @@ Then to run the CLIENT you need to make sure you are inside the CLIENT/commit_hi
 
 ## Using the app
 <br>
-To get the commit list for this project, you need to pass an OAuth token from github on the client home page, or if you want to use the Postman API or another platform, you need to pass an authorization in the headers.
+To get the list of commits for this project, you need to either pass an OAuth token from github on the client home page (I'll email you my OAuth token, because GitHub doesn't support tokens in public repositories), or you can use the Postman API or other platform, you need to pass authorization in headers like this:
+
+<br><br>
+
+**Authorization: token {OAuthToken}**
