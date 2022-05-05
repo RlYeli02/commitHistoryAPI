@@ -7,35 +7,28 @@ const gitHub = new GitHubAPI();
 const gitHubCache = new NodeCache();
 
 router.get("/", async (req, res) => {
-    try {
-        const token = req.headers.authorization;
+  try {
+    const token = req.headers.authorization;
 
-        if (gitHubCache.has('commits')) {
+    if (gitHubCache.has("commits")) {
 
-            const commitsFromCache = JSON.stringify(gitHubCache.get('commits'))
+      const commitsFromCache = JSON.stringify(gitHubCache.get("commits"));
+      res.send(JSON.parse(commitsFromCache));
+      
+    } else {
+      const commits = await gitHub.getCommitsByRepo(token);
+      const { status, data } = commits;
 
-            res.setHeader('Content-Type', 'application/json');
-            res.send(commitsFromCache)
-
-        } else {
-            const commits = await gitHub.getCommitsByRepo(token)
-            const { status, data } = commits;
-          
-            if (status === 200) {
-                gitHubCache.set('commits', data)
-                res.status(200).send(data)
-            }
-
-            else {
-                res.status(status).send(data)
-            }
-
-        }
-
-    } catch (e) {
-
-        throw new Error(e)
+      if (status === 200) {
+        gitHubCache.set("commits", data);
+        res.status(200).send(data);
+      } else {
+        res.status(status).send(data);
+      }
     }
-})
+  } catch (e) {
+    throw new Error(e);
+  }
+});
 
 export default router;
