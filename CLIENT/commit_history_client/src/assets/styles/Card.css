@@ -1,43 +1,38 @@
-
-.commit-container{
-    background-color: rgb(236, 249, 255);
-   width: 100%;
-   display: flex; 
-   flex-direction: row; 
-   flex-wrap:wrap;
-   padding: 5% 15%;
-   justify-content: center;
+.commit-container {
+  background-color: rgb(236, 249, 255);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5% 15%;
+  justify-content: center;
 }
 
-.commit-list{
-
-    border-radius: 5px ;
-    display: flex;
-    flex-direction: row;  
-    flex-wrap:wrap;
-    width: 100%;
-
- }
- .commit-list-card{
-    background-color: white;
-    border: 1px solid grey;
-    border-radius: 5px ;
-    margin: 2% ;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    width: 21%;
-
- }
-
-.commit-date{
-     font-size: 14px;
+.commit-list {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.commit-list-card {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 2%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 21%;
 }
 
-.commit-author-photo{
-    height: 60px;
-    width: 60px;
-    margin:0px 43%;
+.commit-date {
+  font-size: 14px;
+}
+
+.commit-author-photo {
+  height: 60px;
+  width: 60px;
+  margin: 0px 43%;
   border-radius: 50%;
-   
 }
