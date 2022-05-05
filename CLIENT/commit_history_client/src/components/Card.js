@@ -3,24 +3,21 @@ import React from "react";
 
 import githubLogo from "../assets/images/github-2.png";
 
-const Card = ({author, commit, sha}) => {
+const Card = ({ author, commit, sha }) => {
+  const isVerified = commit.verification.verified ? "true" : "false";
 
-    const isVerified = commit.verification.verified?"true":"false";
-
-
-    const commitVerification = {
-        backgroundColor: isVerified ==="true" ? "green":"red",
-        color: "white",
-        width: "65px",
-        borderRadius: "10px",
-        padding: "0px 6px",
-        height: "20px",
-    };
-
+  const commitVerification = {
+    backgroundColor: isVerified === "true" ? "green" : "red",
+    color: "white",
+    width: "65px",
+    borderRadius: "10px",
+    padding: "0px 6px",
+    height: "20px",
+  };
 
   return (
     <>
-      <div className="commit-list-card" >
+      <div className="commit-list-card">
         <img
           className="commit-author-photo"
           src={author?.avatar_url ?? githubLogo}
@@ -38,10 +35,7 @@ const Card = ({author, commit, sha}) => {
   );
 };
 
-
-
 const Cards = ({ commits }) => {
-
   return (
     <div className="container">
       <div className="commit-container">
@@ -50,7 +44,7 @@ const Cards = ({ commits }) => {
         ) : (
           <div className="commit-list">
             {commits.map(({ author, commit, sha }) => (
-              <Card key={sha} author={author} commit={commit}/>
+              <Card key={sha} author={author} commit={commit} />
             ))}
           </div>
         )}
