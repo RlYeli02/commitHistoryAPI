@@ -26,6 +26,8 @@ Then to run the CLIENT you need to make sure you are inside the CLIENT/commit_hi
 
 2. Run this command to start the client 'yarn start'.
 
+3. Open http://localhost:3000 to view it in the browser.
+
 
 <br>
 
